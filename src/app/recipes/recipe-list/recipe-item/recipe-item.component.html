@@ -1,1 +1,18 @@
-<p>recipe-item works!</p>
+<a href="#" style="text-decoration: none" (click)="currentRecipeDetails(recipe)">
+    <div class="card p-3 my-3">
+        <div class="d-flex justify-content-between">
+            <span class="pull-left">
+                <h4 class="list-group-item-heading">{{ key + 1 + ' ' }}{{ recipe.name }}</h4>
+                <p class="list-group-item-text">{{ recipe.description }}</p>
+            </span>
+            <span class="pull-right">
+                <img
+                    [src]="recipe.imagePath"
+                    alt="{{ recipe.name }}"
+                    class="img-responsive"
+                    style="max-height: 100px; max-width: 100px"
+                />
+            </span>
+        </div>
+    </div>
+</a>

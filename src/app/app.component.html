@@ -1,13 +1,15 @@
-<app-header />
+<app-header #featureName />
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <app-recipes />
+    <div class="row" *ngIf="currentNabTab.selectedProduct === 'Recipe'; else elseIDBlock">
+        <div class="col-sm-12">
+            <app-recipes />
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <app-shopping-list />
-    </div>
-  </div>
+    <ng-template #elseIDBlock>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-shop />
+            </div>
+        </div>
+    </ng-template>
 </div>

@@ -1,0 +1,25 @@
+{
+  "folders": [
+	{
+		"path": "../../../my-demo-app"
+	},
+	{
+		"path": "../../../../Company/Error_Tech/Touch/T-Mobile/Touch-mobile-app"
+	},
+	{
+		"path": "../../../../Company/Error_Tech/Medmate"
+	},
+	{
+		"path": "../../../../Company/Error_Tech/Touch/T-Mobile/CallingMobileRNApp"
+	},
+	{
+		"path": "../.."
+	},
+	{
+		"path": "../../../../Company/Error_Tech/FM"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "my-demo-app"
+  }
+}

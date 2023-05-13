@@ -1,36 +1,16 @@
 <div class="row">
-  <div class="col-sm-12">
-    <button class="btn btn-success">New Recipes</button>
-  </div>
+    <div class="col-sm-12">
+        <button class="btn btn-success">New Recipes</button>
+    </div>
 </div>
 <hr />
 <div class="row">
-  <div class="col-sm-12">
-    <a
-      href="#"
-      *ngFor="let recipe of recipes; index as i"
-      style="text-decoration: none"
-      (click)="currentRecipeDetails(recipe)"
-    >
-      <div class="card p-3 my-3">
-        <div class="d-flex justify-content-between">
-          <span class="pull-left">
-            <h4 class="list-group-item-heading">
-              {{ i + 1 + " " }}{{ recipe.name }}
-            </h4>
-            <p class="list-group-item-text">{{ recipe.description }}</p>
-          </span>
-          <span class="pull-right">
-            <img
-              [src]="recipe.imagePath"
-              alt="{{ recipe.name }}"
-              class="img-responsive"
-              style="max-height: 100px; max-width: 100px"
-            />
-          </span>
-        </div>
-      </div>
-    </a>
-    <app-recipe-item />
-  </div>
+    <div class="col-sm-12">
+        <app-recipe-item
+            *ngFor="let recipeEl of recipes; index as i"
+            [recipe]="recipeEl"
+            [key]="i"
+            (displayCurrentRecipe)="displayRecipeDetails($event)"
+        />
+    </div>
 </div>

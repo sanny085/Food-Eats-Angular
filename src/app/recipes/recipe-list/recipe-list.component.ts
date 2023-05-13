@@ -22,7 +22,7 @@ export class RecipeListComponent {
     ),
   ];
 
-  currentRecipeDetails = (recipe: Recipe) => {
+  displayRecipeDetails = (recipe: Recipe) => {
     console.log('Recipe - ', recipe);
     this.showRecipeDetails.emit(recipe);
   };
