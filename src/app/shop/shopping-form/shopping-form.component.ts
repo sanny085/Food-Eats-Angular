@@ -6,7 +6,9 @@ import {
     ViewEncapsulation,
     SimpleChanges,
     OnChanges,
-    OnInit
+    OnInit,
+    ViewChild,
+    ElementRef
 } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
 
@@ -17,8 +19,12 @@ import { Ingredient } from '../../shared/ingredient.model';
     encapsulation: ViewEncapsulation.Emulated // Emulated, ShadowDom, None
 })
 export class ShoppingFormComponent implements OnChanges, OnInit {
-    productName: string = '';
-    productQuantity: number = 0;
+    // productName: string = '';
+    // productQuantity: number = 0;
+    @ViewChild('productName') productNameRef: ElementRef;
+    @ViewChild('productQuantity') productQuantityRef: ElementRef;
+    @ViewChild('productType') productTypeRef: ElementRef;
+
     @Input() ingredients: Ingredient[] = [];
     @Output() addProduct: EventEmitter<Ingredient> = new EventEmitter();
     constructor() {
@@ -29,14 +35,18 @@ export class ShoppingFormComponent implements OnChanges, OnInit {
         console.log('ngOnChanges changes');
         console.log('ngOnChanges changes', changes);
     }
-    ngOnInit() {
-        console.log('ngOnInit - ', this.productName);
-    }
-    onAddProduct = (productType: HTMLElement) => {
-        console.log(productType);
-        const newProduct = {
-            productName: this.productName,
-            productQuantity: this.productQuantity
+    ngOnInit() {}
+    onAddProduct = () => {
+        console.log('Event - ', this.productTypeRef.nativeElement.value);
+        const productName = this.productNameRef.nativeElement.value;
+        const productQuantity = this.productQuantityRef.nativeElement.value;
+        const productType = this.productTypeRef.nativeElement.value;
+
+        console.log('productName, productQuantity', productName, productQuantity);
+        const newProduct: Ingredient = {
+            productName,
+            productQuantity,
+            productType
         };
         this.addProduct.emit(newProduct);
     };

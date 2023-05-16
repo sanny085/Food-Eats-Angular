@@ -1,5 +1,13 @@
-<ul class="list-group" #header>
-    <a href="" class="list-group-item" style="cursor: pointer">
-        {{ ingredient.productName }} {{ ingredient.productQuantity }}
+<ul class="list-group" #header *ngIf="ingredient.productType === 'fruits'; else defaultBlock">
+    <a href="/" class="list-group-item" style="cursor: pointer">
+        {{ key }} {{ ingredient.productName }} {{ ingredient.productQuantity }} {{ ingredient.productType }}
     </a>
 </ul>
+
+<ng-template #defaultBlock>
+    <ul>
+        <a href="/" class="list-group-item" style="cursor: pointer">
+            {{ key }} {{ ingredient.productName }} {{ ingredient.productQuantity }} {{ ingredient.productType }}
+        </a>
+    </ul>
+</ng-template>

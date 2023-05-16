@@ -16,9 +16,10 @@ import { Ingredient } from '../../shared/ingredient.model';
 })
 export class ShoppingListComponent implements OnChanges, OnInit, AfterViewInit {
     @Input('tim') public ingredient: Ingredient;
+    @Input() key: number;
     @ViewChild('header') heading: ElementRef;
     constructor() {
-        this.ingredient = new Ingredient('', 0);
+        this.ingredient = new Ingredient('', 0, '');
     }
     ngOnChanges(changes: SimpleChanges) {
         console.log('ngOnChanges changes - ShoppingListComponent');

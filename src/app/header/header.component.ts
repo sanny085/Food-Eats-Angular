@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    selectedProduct: string = '';
+    selectedProduct: string = 'Shopping';
     constructor() {}
     onSelectProduct(value: string, event: any) {
         console.log('Value: ' + value);

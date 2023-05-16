@@ -6,6 +6,6 @@
         <hr />
 
         <!-- Passing like as a alias -->
-        <app-shopping-list *ngFor="let ingredient of ingredients" [tim]="ingredient" />
+        <app-shopping-list *ngFor="let ingredient of ingredients; index as i" [tim]="ingredient" [key]="i" />
     </div>
 </div>
